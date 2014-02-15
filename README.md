@@ -14,9 +14,13 @@ Whats working so far
 
 [x] Dependency injection via require works for prod and test
 [x] Tests are run with maven -> karma -> phantom.js
+[x] Code coverage!
 
-Next steps
+How to run
 ----------
 
-[ ] Get code coverage report to work!
+* Install node and npm (and maven, obiviously)
+* Run 'npm install karma' to install karma, use optional -g flag to make it available system-wide
+* Run 'npm install karma-coverage' to install missing coverage plugin
+* Done! Run 'karma start' for drive-by testing or 'mvn clean install' to build
 
