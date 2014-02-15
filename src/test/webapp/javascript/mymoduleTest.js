@@ -9,77 +9,30 @@ define(['javascript/mymodule'], function(module) {
             });
         });
         describe("doStuffAsync", function() {
-            it("says hello world!", function() {
-                
-                var result = undefined;
-                
-                runs(function() {
-                    module.doStuffAsync(2, 1, function(res) {
-                        result = res;
-                    });
-                });
-                
-                waitsFor(function() {
-                   return result; 
-                }, 50);
-                
-                runs(function() {
-                    expect(result).toEqual("hello world!");
+            it("says hello world!", function(done) {
+                module.doStuffAsync(2, 1, function(res) {
+                    expect(res).toEqual("hello world!");      
+                    done();
                 });
             });
-            it("says foobar.", function() {
-                var result = undefined;
-                
-                runs(function() {
-                    module.doStuffAsync(1, 2, function(res) {
-                        result = res;
-                    });
-                });
-                
-                waitsFor(function() {
-                   return result; 
-                }, 50);
-                
-                runs(function() {
-                    expect(result).toEqual("foobar.");
+            it("says foobar.", function(done) {
+                module.doStuffAsync(1, 2, function(res) {
+                    expect(res).toEqual("foobar.");
+                    done();
                 });
             });
         });
         describe("doStuffWithPromise", function() {
-            it("says hello world!", function() {
-                
-                var result = undefined;
-                
-                runs(function() {
-                    module.doStuffWithPromise(2, 1).done(function(res) {
-                        result = res;
-                    });
-                });
-                
-                waitsFor(function() {
-                   return result; 
-                }, 50);
-                
-                runs(function() {
-                    expect(result).toEqual("hello world!");
+            it("says hello world!", function(done) {
+                module.doStuffWithPromise(2, 1).done(function(res) {
+                    expect(res).toEqual("hello world!");
+                    done();
                 });
             });
-            it("says foobar.", function() {
-                
-                var result = undefined;
-                
-                runs(function() {
-                    module.doStuffWithPromise(1, 2).done(function(res) {
-                        result = res;
-                    });
-                });
-                
-                waitsFor(function() {
-                   return result; 
-                }, 50);
-                
-                runs(function() {
-                    expect(result).toEqual("foobar.");
+            it("says foobar.", function(done) {
+                module.doStuffWithPromise(1, 2).done(function(res) {
+                    expect(res).toEqual("foobar.");
+                    done();
                 });
             });
         });
