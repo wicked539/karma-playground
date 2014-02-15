@@ -35,6 +35,10 @@ define(['jquery'], function($) {
             }
             
             return deferred.promise();
+        },
+        
+        doUntestedStuff: function() {
+            return "i am untested!";
         }
     };
 });
